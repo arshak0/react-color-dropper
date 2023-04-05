@@ -1,0 +1,143 @@
+@import './colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+$small-spacing: 12px;
+$middle-spacing: 20px;
+$large-spacing: 30px;
+$border-width: 1px;
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-small-screen: 1024px;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin margin-left-right-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin app-plain {
+  text-align: center;
+  padding: $middle-spacing $large-spacing $large-spacing $large-spacing;
+}
+
+@mixin hide-cell {
+  border: none!important;
+  background-color: transparent!important;
+}
+
+.App {
+  @include app-plain;
+}
+
+.App-dropper-active {
+  @include app-plain;
+  cursor: url("./IconColorPicker.svg") 3 13,auto;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.Dropper-box-row:nth-child(2) {
+  .Dropper-box-row-element:nth-child(1) {
+    @include hide-cell;
+  }
+  .Dropper-box-row-element:nth-child(2) {
+    @include hide-cell;
+  }
+  .Dropper-box-row-element:nth-child(10) {
+    @include hide-cell;
+  }
+  .Dropper-box-row-element:nth-child(11) {
+    @include hide-cell;
+  }
+}
+
+.Dropper-box-row:nth-child(12) {
+  .Dropper-box-row-element:nth-child(1) {
+    @include hide-cell;
+  }
+  .Dropper-box-row-element:nth-child(2) {
+    @include hide-cell;
+  }
+  .Dropper-box-row-element:nth-child(10) {
+    @include hide-cell;
+  }
+  .Dropper-box-row-element:nth-child(11) {
+    @include hide-cell;
+  }
+}
+
+.Dropper-box-row:nth-child(3) {
+  .Dropper-box-row-element:nth-child(1) {
+    @include hide-cell;
+  }
+  .Dropper-box-row-element:nth-child(11) {
+    @include hide-cell;
+  }
+}
+
+.Dropper-box-row:nth-child(11) {
+  .Dropper-box-row-element:nth-child(1) {
+    @include hide-cell;
+  }
+  .Dropper-box-row-element:nth-child(11) {
+    @include hide-cell;
+  }
+}
+
+.Dropper-box-row:nth-child(7) {
+  .Dropper-box-row-element:nth-child(6) {
+    outline: 2px solid white;
+    z-index: 1000;
+  }
+}
+
+.Pixel-dropper-text {
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px;
+  color: white;
+  background-color: gray;
+  border-radius: 3px;
+}
+
+@media (max-width: $breakpoint-tablet) {
+
+}
