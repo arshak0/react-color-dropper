@@ -21,21 +21,21 @@ export default function HomePage() {
         const context = canvasRef?.current?.getContext('2d');
         if (context) {
             const image = new Image();
-            image.onload = function (res) {
+            image.onload = function () {
                 context.drawImage(image, 0, 0, window.innerWidth - 80, window.innerHeight);
             }
             image.src = require('./assets/BackgroundImage.jpg');
         }
     }, [])
 
-    const dropperMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
+    const dropperMouseEnter = () => {
         if (!keepDropper) {
             setDropperOffSetX(0);
             setDropperOffSetY(0);
         }
     }
 
-    const dropperActivateClick = (event: React.MouseEvent<HTMLElement>) => {
+    const dropperActivateClick = () => {
         if (!isDropperActivated) setIsDropperActivated(!isDropperActivated)
         else {
             setIsDropperActivated(!isDropperActivated)
@@ -58,8 +58,8 @@ export default function HomePage() {
             const context = canvasRef?.current?.getContext('2d')
             let x=event.clientX-canvasRef?.current?.getBoundingClientRect()?.x;
             let y=event.clientY-canvasRef?.current?.getBoundingClientRect()?.y;
-            setDropperOffSetX(event.pageX-50)//Centralizing the dropper circle in realtion with the cursor
-            setDropperOffSetY(event.pageY-50)//Centralizing the dropper circle in realtion with the cursor
+            setDropperOffSetX(event.pageX-50)//Centralizing the dropper circle in relation with the cursor
+            setDropperOffSetY(event.pageY-50)//Centralizing the dropper circle in relation with the cursor
             const imageData = context?.getImageData(x, y, 1, 1);
             let [red, green, blue, alpha] = [imageData?.data[0], imageData?.data[1], imageData?.data[2], imageData?.data[3]];
             setCurrentColor(FUNCTIONS.rgb2hex(`rgba(${red}, ${green}, ${blue}, ${alpha})`))
@@ -102,7 +102,7 @@ export default function HomePage() {
                     <Box sx={{backgroundColor: 'secondary.light', borderRadius: '50%', width: 26, height: 26, padding: 1}}
                          onClick={dropperActivateClick}
                     >
-                        <img src='./assets/IconColorPicker.svg'/>
+                        <img src='./assets/IconColorPicker.svg' alt='icon'/>
                     </Box>
                     {isDropperClicked &&
                         <Box sx={{display: 'flex', flexDirection: 'row', width: '100%'}}>
